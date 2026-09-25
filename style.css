@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body {
+    background-color: #050505;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 60, 150, 0.25) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0, 60, 150, 0.25) 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle at center,
+            rgba(255, 0, 0, 0.25),
+            transparent 40%
+        );
+
+    background-size:
+        50px 50px,
+        50px 50px,
+        100% 100%;
+
+    font-family: 'Poppins', sans-serif;
+
+    text-align: center;
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: white;
+}
+
+
+/* =========================
+   JARING LABA-LABA
+========================= */
+
+.web {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    opacity: 0.25;
+
+    z-index: 0;
+
+    background-image:
+
+        repeating-radial-gradient(
+            circle at 50% 50%,
+            transparent 0px,
+            transparent 40px,
+            rgba(255, 255, 255, 0.4) 41px,
+            transparent 42px
+        ),
+
+        repeating-conic-gradient(
+            from 0deg at 50% 50%,
+            transparent 0deg,
+            transparent 14deg,
+            rgba(255, 255, 255, 0.35) 15deg,
+            transparent 16deg
+        );
+}
+
+
+/* =========================
+   KARTU UTAMA
+========================= */
+
+.card {
+    position: relative;
+
+    z-index: 1;
+
+    background: linear-gradient(
+        145deg,
+        #b30000,
+        #650000
+    );
+
+    width: 350px;
+
+    margin: 100px auto;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 2px solid #0066ff;
+
+    box-shadow:
+        0 0 15px #ff0000,
+        0 0 30px #003cff;
+
+    transition: 0.4s;
+
+    animation: muncul 1s ease-out;
+}
+
+
+/* Efek kartu */
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 0 25px #ff0000,
+        0 0 50px #0066ff;
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+.card img {
+    width: 200px;
+
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #0066ff;
+
+    box-shadow:
+        0 0 15px #0066ff,
+        0 0 30px #ff0000;
+
+    transition: 0.4s;
+
+    animation: fotoMuncul 1.2s ease-out;
+}
+
+
+/* Efek foto */
+
+.card img:hover {
+    transform: scale(1.08) rotate(3deg);
+
+    box-shadow:
+        0 0 20px #ff0000,
+        0 0 40px #0066ff;
+}
+
+
+/* =========================
+   JUDUL
+========================= */
+
+h1 {
+    color: white;
+
+    font-size: 40px;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 20px #0066ff;
+
+    margin-bottom: 5px;
+
+    animation: namaMuncul 1.4s ease-out;
+}
+
+
+/* =========================
+   SUBJUDUL
+========================= */
+
+h2 {
+    color: #66aaff;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   PARAGRAF
+========================= */
+
+p {
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: white;
+
+    animation: teksMuncul 1.8s ease-out;
+}
+
+
+/* =========================
+   TOMBOL UTAMA
+========================= */
+
+.card > button {
+    background: #0066ff;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border: 2px solid #ff0000;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+
+    font-family: 'Poppins', sans-serif;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #0066ff,
+        0 0 20px #ff0000;
+
+    transition: 0.3s;
+
+    animation: tombolMuncul 2s ease-out;
+}
+
+
+/* Hover tombol */
+
+.card > button:hover {
+    background: #ff0000;
+
+    box-shadow:
+        0 0 15px #ff0000,
+        0 0 30px #0066ff;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+.popup {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* Kotak popup */
+
+.popup-box {
+    position: relative;
+
+    width: 350px;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        145deg,
+        #b30000,
+        #500000
+    );
+
+    border: 2px solid #0066ff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 20px #ff0000,
+        0 0 50px #0066ff;
+
+    animation: popupMuncul 0.4s ease;
+}
+
+
+/* Judul popup */
+
+.popup-box h2 {
+    color: white;
+
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 15px #0066ff;
+}
+
+
+/* =========================
+   TOMBOL X
+========================= */
+
+.tutup {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-family: Arial, sans-serif;
+
+    cursor: pointer;
+
+    box-shadow: none;
+
+    padding: 0;
+}
+
+
+/* Jangan beri efek tombol utama ke X */
+
+.tutup:hover {
+    background: transparent;
+
+    transform: scale(1.2);
+
+    box-shadow: none;
+}
+
+
+/* =========================
+   LINK KONTAK
+========================= */
+
+.kontak {
+    display: block;
+
+    margin: 15px 0;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    border: 2px solid white;
+
+    transition: 0.3s;
+}
+
+
+/* Hover kontak */
+
+.kontak:hover {
+    transform: scale(1.05);
+
+    background: #0066ff;
+
+    box-shadow:
+        0 0 15px #0066ff,
+        0 0 25px #ff0000;
+}
+
+
+/* =========================
+   ANIMASI
+========================= */
+
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes fotoMuncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            rotate(-20deg);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+    }
+}
+
+
+@keyframes namaMuncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+@keyframes teksMuncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes tombolMuncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes popupMuncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}

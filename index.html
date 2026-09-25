@@ -5,65 +5,436 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio Saiful</title>
+    <title>Saiful Anwar | Spider-Man</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- JARING LABA-LABA -->
-    <div class="web"></div>
+    <div class="spider-web"></div>
 
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
-    <!-- KARTU UTAMA -->
-    <div class="card">
+        <div class="logo" id="logo">
+            SA<span>⚡</span>
+        </div>
 
-        <img src="ftosaya.jpeg" alt="Foto Saiful">
-
-        <h1>Saiful Anwar</h1>
-
-        <h2>SPIDERMAN ASLI BANSEL</h2>
-
-        <p>
-            Siap menyelamatkan BANSEL AREA dari
-            macet, banjir, gengster, preman, dsb.
-            <br>
-            BUTUH BANTUAN?
-        </p>
-
-        <button onclick="bukaKontak()">
-            Hubungi Saya
+        <button class="menu-toggle" onclick="toggleMenu()">
+            ☰
         </button>
 
-    </div>
+        <div class="nav-menu" id="navMenu">
+
+            <a href="#home" onclick="tutupMenu()">HOME</a>
+            <a href="#about" onclick="tutupMenu()">ABOUT</a>
+            <a href="#education" onclick="tutupMenu()">EDUCATION</a>
+            <a href="#learning" onclick="tutupMenu()">LEARNING</a>
+            <a href="#goals" onclick="tutupMenu()">GOALS</a>
+            <a href="#contact" onclick="tutupMenu()">CONTACT</a>
+
+        </div>
+
+        <!-- MUSIC -->
+        <button id="musicButton" class="music-button" onclick="toggleMusic()">
+            🎵 PLAY
+        </button>
+
+        <audio id="backgroundMusic" controls loop>
+         <source src="./musik.mp3" type="audio/mpeg">
+         Browser kamu tidak mendukung pemutar audio.
+        </audio>
+
+    </nav>
 
 
-    <!-- POPUP KONTAK -->
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WELCOME TO MY WEBSITE
+            </p>
+
+            <h1>
+                SAIFUL <span>ANWAR</span>
+            </h1>
+
+            <h2>
+                SPIDERMAN ASLI BANSEL 🕷️
+            </h2>
+
+            <p>
+                Siap menyelamatkan BANSEL AREA
+                dari macet, banjir, gengster,
+                preman, dsb.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#about" class="btn">
+                    EXPLORE
+                </a>
+
+                <button onclick="bukaKontak()" class="btn btn-outline">
+                    HUBUNGI SAYA
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <div class="image-glow"></div>
+
+            <img src="spider.jpeg" alt="Foto Saiful Anwar">
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+
+        <div class="section-title">
+
+            <span>01</span>
+
+            <h2>
+                ABOUT <b>ME</b>
+            </h2>
+
+        </div>
+
+        <div class="about-box">
+
+            <h3>
+                Halo! 👋
+            </h3>
+
+            <p>
+                Saya <strong>Saiful Anwar</strong>.
+                Website ini merupakan halaman pribadi saya
+                untuk memperkenalkan diri dan perjalanan
+                saya dalam belajar berbagai hal,
+                terutama teknologi dan pemrograman.
+            </p>
+
+            <p>
+                Saya masih dalam tahap belajar dan terus
+                mencoba hal-hal baru untuk meningkatkan
+                kemampuan saya.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+
+        <div class="section-title">
+
+            <span>02</span>
+
+            <h2>
+                MY <b>EDUCATION</b>
+            </h2>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <span class="timeline-date">
+                        2020 — 2023
+                    </span>
+
+                    <h3>
+                        SMP PEMUDA BANJARAN
+                    </h3>
+
+                    <p>
+                        Menempuh pendidikan Sekolah
+                        Menengah Pertama di SMP
+                        PEMUDA BANJARAN.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <span class="timeline-date">
+                        2023 — 2026
+                    </span>
+
+                    <h3>
+                        SMA PEMUDA BANJARAN
+                    </h3>
+
+                    <p>
+                        Menempuh pendidikan Sekolah
+                        Menengah Atas di SMA PEMUDA
+                        BANJARAN hingga lulus.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <span class="timeline-date">
+                        2026 — SEKARANG
+                    </span>
+
+                    <h3>
+                        UNIVERSITAS TEKNOLOGI BANDUNG
+                    </h3>
+
+                    <p>
+                        Memulai perjalanan pendidikan
+                        tinggi dan mengembangkan kemampuan
+                        di bidang teknologi dan pemrograman.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CURRENTLY LEARNING -->
+    <section id="learning" class="section">
+
+        <div class="section-title">
+
+            <span>03</span>
+
+            <h2>
+                CURRENTLY <b>LEARNING</b>
+            </h2>
+
+        </div>
+
+        <div class="learning-container">
+
+            <div class="learning-card">
+
+                <div class="learning-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Belajar HTML, CSS dan JavaScript
+                    untuk membuat website.
+                </p>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="learning-icon">
+                    🐍
+                </div>
+
+                <h3>
+                    Python
+                </h3>
+
+                <p>
+                    Belajar dasar Python dan mencoba
+                    membuat berbagai program sederhana.
+                </p>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="learning-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Programming
+                </h3>
+
+                <p>
+                    Mempelajari logika pemrograman
+                    dan cara menyelesaikan masalah
+                    menggunakan kode.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GOALS -->
+    <section id="goals" class="section">
+
+        <div class="section-title">
+
+            <span>04</span>
+
+            <h2>
+                MY <b>GOALS</b>
+            </h2>
+
+        </div>
+
+        <div class="goals-box">
+
+            <h3>
+                KEEP LEARNING.
+                KEEP BUILDING. 🕷️
+            </h3>
+
+            <p>
+                Terus belajar, mencoba hal baru,
+                dan membangun sesuatu dari apa
+                yang sudah dipelajari.
+            </p>
+
+            <div class="goal-list">
+
+                <div>
+                    ⚡ Meningkatkan kemampuan coding
+                </div>
+
+                <div>
+                    ⚡ Membuat website yang lebih baik
+                </div>
+
+                <div>
+                    ⚡ Memahami teknologi lebih dalam
+                </div>
+
+                <div>
+                    ⚡ Terus berkembang dan belajar
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+
+        <div class="section-title">
+
+            <span>05</span>
+
+            <h2>
+                CONTACT <b>ME</b>
+            </h2>
+
+        </div>
+
+        <p>
+            Butuh bantuan Spider-Man BANSEL? 🕷️
+        </p>
+
+        <button onclick="bukaKontak()" class="btn">
+            HUBUNGI SAYA
+        </button>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Saiful Anwar
+        </p>
+
+        <p>
+            SPIDERMAN ASLI BANSEL 🕷️
+        </p>
+
+    </footer>
+
+
+    <!-- CONTACT POPUP -->
     <div id="popupKontak" class="popup">
 
         <div class="popup-box">
 
-            <button class="tutup" onclick="tutupKontak()">
+            <button onclick="tutupKontak()" class="close">
                 ×
             </button>
 
-            <h2>🕷️ HUBUNGI SAYA</h2>
+            <h2>
+                HUBUNGI SAYA
+            </h2>
 
             <p>
                 Silakan pilih cara untuk menghubungi saya.
             </p>
 
-            <a href="https://wa.me/6283137556297" class="kontak" target="_blank">
+            <!-- GANTI DENGAN LINK KAMU -->
+
+            <a
+                href="https://wa.me/6283137556297"
+                target="_blank"
+                class="contact-link">
                 📱 WhatsApp
             </a>
 
-            <a href="https://instagram.com/_________181818" class="kontak" target="_blank">
-             📷 Instagram
+            <a
+                href="https://instagram.com/_________181818"
+                target="_blank"
+                class="contact-link">
+                📸 Instagram
             </a>
 
-            <a href="mailto:saifulkamasan024@gmail.com" class="kontak">
-             ✉️ Email
+            <a
+                href="mailto:saifulkamasan024@gmail.com"
+                class="contact-link">
+                📧 Email
             </a>
 
         </div>
@@ -71,7 +442,18 @@
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- EASTER EGG MESSAGE -->
+    <div id="easterMessage" class="easter-message">
+
+        🕷️ SPIDER-MAN MODE 🕷️
+
+        <span>
+            WITH GREAT POWER COMES GREAT RESPONSIBILITY
+        </span>
+
+    </div>
+
+
     <script src="script.js"></script>
 
 </body>

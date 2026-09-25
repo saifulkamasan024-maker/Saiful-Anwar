@@ -1,261 +1,877 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #050505;
+    color: white;
+    overflow-x: hidden;
+}
 
 
 /* =========================
    BACKGROUND
 ========================= */
 
-body {
-    background-color: #050505;
+.spider-web {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
 
     background-image:
-        linear-gradient(
-            rgba(0, 60, 150, 0.25) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(0, 60, 150, 0.25) 1px,
-            transparent 1px
-        ),
-
         radial-gradient(
             circle at center,
-            rgba(255, 0, 0, 0.25),
-            transparent 40%
+            transparent 0 80px,
+            rgba(255, 0, 0, 0.08) 81px,
+            transparent 82px
+        ),
+        repeating-radial-gradient(
+            circle at center,
+            transparent 0 100px,
+            rgba(255, 0, 0, 0.04) 101px 102px
         );
 
-    background-size:
-        50px 50px,
-        50px 50px,
-        100% 100%;
+    animation: webMove 20s linear infinite;
+}
 
-    font-family: 'Poppins', sans-serif;
 
-    text-align: center;
+@keyframes webMove {
 
-    margin: 0;
+    0% {
+        transform: scale(1);
+    }
 
-    min-height: 100vh;
+    50% {
+        transform: scale(1.05);
+    }
 
-    color: white;
+    100% {
+        transform: scale(1);
+    }
+
 }
 
 
 /* =========================
-   JARING LABA-LABA
+   NAVBAR
 ========================= */
 
-.web {
+.navbar {
     position: fixed;
 
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 100%;
+    height: 70px;
 
-    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    opacity: 0.25;
+    padding: 0 7%;
 
-    z-index: 0;
+    background: rgba(5, 5, 5, 0.9);
 
-    background-image:
+    backdrop-filter: blur(12px);
 
-        repeating-radial-gradient(
-            circle at 50% 50%,
-            transparent 0px,
-            transparent 40px,
-            rgba(255, 255, 255, 0.4) 41px,
-            transparent 42px
-        ),
+    border-bottom: 1px solid rgba(255, 0, 0, 0.25);
 
-        repeating-conic-gradient(
-            from 0deg at 50% 50%,
-            transparent 0deg,
-            transparent 14deg,
-            rgba(255, 255, 255, 0.35) 15deg,
-            transparent 16deg
-        );
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 26px;
+
+    font-weight: 800;
+
+    color: #ff2020;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    text-shadow:
+        0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+
+.logo span {
+    color: #168cff;
+}
+
+
+.nav-menu {
+    display: flex;
+
+    gap: 25px;
+}
+
+
+.nav-menu a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.nav-menu a:hover {
+    color: #ff2020;
+
+    text-shadow:
+        0 0 8px red;
 }
 
 
 /* =========================
-   KARTU UTAMA
+   MOBILE MENU
 ========================= */
 
-.card {
+.menu-toggle {
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-button {
+    padding: 8px 14px;
+
+    border: 1px solid #ff2020;
+
+    border-radius: 5px;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.music-button:hover {
+    background: #ff2020;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+
+.music-button.playing {
+    background: #168cff;
+
+    border-color: #168cff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 120px 10% 80px;
+
+    gap: 50px;
+}
+
+
+.hero-content {
+    max-width: 600px;
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.hero-content.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.small-title {
+    color: #168cff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 90px);
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero h1 span {
+    color: #ff2020;
+
+    text-shadow:
+        0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+
+.hero h2 {
+    color: #168cff;
+
+    font-size: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+.hero-content > p:not(.small-title) {
+    color: #aaa;
+
+    line-height: 1.8;
+
+    max-width: 520px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #ff2020;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    background: #168cff;
+
+    box-shadow:
+        0 0 25px rgba(0, 132, 255, 0.6);
+}
+
+
+.btn-outline {
+    background: transparent;
+
+    border: 1px solid #168cff;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
     position: relative;
 
-    z-index: 1;
+    width: 330px;
 
-    background: linear-gradient(
-        145deg,
-        #b30000,
-        #650000
-    );
+    height: 330px;
 
-    width: 350px;
+    flex-shrink: 0;
 
-    margin: 100px auto;
+    display: flex;
 
-    padding: 30px;
+    justify-content: center;
 
-    border-radius: 20px;
+    align-items: center;
 
-    border: 2px solid #0066ff;
+    opacity: 0;
 
-    box-shadow:
-        0 0 15px #ff0000,
-        0 0 30px #003cff;
+    transform: scale(0.85);
 
-    transition: 0.4s;
-
-    animation: muncul 1s ease-out;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
 
-/* Efek kartu */
+.hero-image.show {
+    opacity: 1;
 
-.card:hover {
-    transform: translateY(-10px);
-
-    box-shadow:
-        0 0 25px #ff0000,
-        0 0 50px #0066ff;
+    transform: scale(1);
 }
 
 
-/* =========================
-   FOTO
-========================= */
+.hero-image img {
+    position: relative;
 
-.card img {
-    width: 200px;
+    width: 270px;
 
-    height: 200px;
+    height: 270px;
 
     object-fit: cover;
 
     border-radius: 50%;
 
-    border: 5px solid #0066ff;
+    border: 5px solid #ff2020;
+
+    z-index: 2;
 
     box-shadow:
-        0 0 15px #0066ff,
-        0 0 30px #ff0000;
+        0 0 20px rgba(255, 0, 0, 0.7);
 
     transition: 0.4s;
-
-    animation: fotoMuncul 1.2s ease-out;
 }
 
 
-/* Efek foto */
+.hero-image img:hover {
+    transform: scale(1.05);
 
-.card img:hover {
-    transform: scale(1.08) rotate(3deg);
+    border-color: #168cff;
+}
 
-    box-shadow:
-        0 0 20px #ff0000,
-        0 0 40px #0066ff;
+
+.image-glow {
+    position: absolute;
+
+    width: 290px;
+
+    height: 290px;
+
+    border-radius: 50%;
+
+    background: #ff2020;
+
+    filter: blur(80px);
+
+    opacity: 0.15;
+
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes glowPulse {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0.12;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.25;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0.12;
+    }
+
 }
 
 
 /* =========================
-   JUDUL
+   SECTIONS
 ========================= */
 
-h1 {
-    color: white;
+.section {
+    min-height: 70vh;
 
-    font-size: 40px;
+    padding: 100px 10%;
+
+    position: relative;
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.section.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 50px;
+}
+
+
+.section-title span {
+    color: #168cff;
+
+    font-size: 14px;
 
     font-weight: 700;
+}
 
-    text-shadow:
-        0 0 10px #ff0000,
-        0 0 20px #0066ff;
 
-    margin-bottom: 5px;
+.section-title h2 {
+    font-size: 38px;
+}
 
-    animation: namaMuncul 1.4s ease-out;
+
+.section-title b {
+    color: #ff2020;
 }
 
 
 /* =========================
-   SUBJUDUL
+   ABOUT
 ========================= */
 
-h2 {
-    color: #66aaff;
+.about-box {
+    max-width: 850px;
 
-    font-size: 24px;
+    padding: 40px;
 
-    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
 
-    margin-top: 5px;
+    border-left: 4px solid #ff2020;
+
+    border-radius: 8px;
+
+    opacity: 0;
+
+    transform: translateX(-40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.about-box.show {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+.about-box h3 {
+    font-size: 28px;
+
+    color: #168cff;
+
+    margin-bottom: 20px;
+}
+
+
+.about-box p {
+    color: #aaa;
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+}
+
+
+.about-box strong {
+    color: #ff2020;
 }
 
 
 /* =========================
-   PARAGRAF
+   EDUCATION
 ========================= */
 
-p {
-    font-size: 17px;
+.timeline {
+    max-width: 850px;
+
+    position: relative;
+
+    margin-left: 20px;
+
+    border-left: 2px solid #ff2020;
+}
+
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 40px;
+
+    margin-bottom: 50px;
+
+    opacity: 0;
+
+    transform: translateX(-40px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+
+.timeline-item.show {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+.timeline-dot {
+    position: absolute;
+
+    left: -9px;
+
+    top: 5px;
+
+    width: 16px;
+
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: #ff2020;
+
+    animation: dotPulse 2s ease-in-out infinite;
+}
+
+
+@keyframes dotPulse {
+
+    0% {
+        box-shadow:
+            0 0 5px rgba(255, 0, 0, 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px rgba(255, 0, 0, 1);
+    }
+
+    100% {
+        box-shadow:
+            0 0 5px rgba(255, 0, 0, 0.5);
+    }
+
+}
+
+
+.timeline-content {
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+
+.timeline-content:hover {
+    transform: translateX(8px);
+
+    border-left: 3px solid #168cff;
+}
+
+
+.timeline-date {
+    color: #168cff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.timeline-content h3 {
+    margin: 8px 0;
+
+    font-size: 22px;
+}
+
+
+.timeline-content p {
+    color: #999;
 
     line-height: 1.7;
-
-    color: white;
-
-    animation: teksMuncul 1.8s ease-out;
 }
 
 
 /* =========================
-   TOMBOL UTAMA
+   LEARNING
 ========================= */
 
-.card > button {
-    background: #0066ff;
+.learning-container {
+    display: grid;
 
-    color: white;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    padding: 12px 25px;
+    gap: 25px;
+}
 
-    border: 2px solid #ff0000;
+
+.learning-card {
+    padding: 35px 25px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
 
     border-radius: 10px;
 
-    font-size: 18px;
-
-    font-family: 'Poppins', sans-serif;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 10px #0066ff,
-        0 0 20px #ff0000;
-
     transition: 0.3s;
 
-    animation: tombolMuncul 2s ease-out;
+    opacity: 0;
+
+    transform: translateY(40px);
 }
 
 
-/* Hover tombol */
+.learning-card.show {
+    opacity: 1;
 
-.card > button:hover {
-    background: #ff0000;
+    transform: translateY(0);
+}
+
+
+.learning-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #ff2020;
 
     box-shadow:
-        0 0 15px #ff0000,
-        0 0 30px #0066ff;
+        0 10px 35px rgba(255, 0, 0, 0.15);
+}
 
-    transform: scale(1.08);
+
+.learning-icon {
+    font-size: 32px;
+
+    color: #ff2020;
+
+    margin-bottom: 20px;
+
+    font-weight: 800;
+}
+
+
+.learning-card h3 {
+    margin-bottom: 12px;
+
+    color: #168cff;
+}
+
+
+.learning-card p {
+    color: #999;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   GOALS
+========================= */
+
+.goals-box {
+    max-width: 850px;
+
+    padding: 45px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 0, 0, 0.08),
+            rgba(0, 100, 255, 0.08)
+        );
+
+    border: 1px solid rgba(255, 0, 0, 0.2);
+
+    opacity: 0;
+
+    transform: scale(0.95);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.goals-box.show {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+.goals-box h3 {
+    font-size: 28px;
+
+    color: #ff2020;
+
+    margin-bottom: 15px;
+}
+
+
+.goals-box > p {
+    color: #aaa;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+.goal-list {
+    display: grid;
+
+    gap: 12px;
+}
+
+
+.goal-list div {
+    padding: 12px 15px;
+
+    background: rgba(0, 0, 0, 0.3);
+
+    border-radius: 5px;
+
+    color: #ddd;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+    text-align: center;
+}
+
+
+.contact-section .section-title {
+    justify-content: center;
+}
+
+
+.contact-section > p {
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px 10%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-top: 1px solid rgba(255, 0, 0, 0.2);
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+footer p:last-child {
+    color: #ff2020;
 }
 
 
@@ -268,71 +884,66 @@ p {
 
     position: fixed;
 
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    width: 100%;
-    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
 
-    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
 
     justify-content: center;
 
     align-items: center;
 
-    z-index: 9999;
+    z-index: 2000;
+
+    padding: 20px;
 }
 
-
-/* Kotak popup */
 
 .popup-box {
     position: relative;
 
-    width: 350px;
+    width: 100%;
 
-    padding: 30px;
+    max-width: 420px;
 
-    background: linear-gradient(
-        145deg,
-        #b30000,
-        #500000
-    );
+    padding: 40px;
 
-    border: 2px solid #0066ff;
+    text-align: center;
 
-    border-radius: 20px;
+    background: #090909;
+
+    border: 1px solid #ff2020;
+
+    border-radius: 12px;
 
     box-shadow:
-        0 0 20px #ff0000,
-        0 0 50px #0066ff;
-
-    animation: popupMuncul 0.4s ease;
+        0 0 50px rgba(255, 0, 0, 0.25);
 }
 
-
-/* Judul popup */
 
 .popup-box h2 {
-    color: white;
+    color: #ff2020;
 
-    text-shadow:
-        0 0 10px #ff0000,
-        0 0 15px #0066ff;
+    margin-bottom: 10px;
 }
 
 
-/* =========================
-   TOMBOL X
-========================= */
+.popup-box p {
+    color: #999;
 
-.tutup {
+    margin-bottom: 25px;
+}
+
+
+.close {
     position: absolute;
 
-    top: 10px;
     right: 15px;
 
-    background: transparent;
+    top: 10px;
+
+    background: none;
 
     border: none;
 
@@ -340,176 +951,482 @@ p {
 
     font-size: 30px;
 
-    font-family: Arial, sans-serif;
-
     cursor: pointer;
-
-    box-shadow: none;
-
-    padding: 0;
 }
 
 
-/* Jangan beri efek tombol utama ke X */
-
-.tutup:hover {
-    background: transparent;
-
-    transform: scale(1.2);
-
-    box-shadow: none;
-}
-
-
-/* =========================
-   LINK KONTAK
-========================= */
-
-.kontak {
+.contact-link {
     display: block;
-
-    margin: 15px 0;
 
     padding: 12px;
 
-    border-radius: 10px;
+    margin-top: 10px;
+
+    border-radius: 5px;
+
+    background: #111;
 
     color: white;
 
     text-decoration: none;
 
-    font-size: 18px;
-
-    border: 2px solid white;
-
     transition: 0.3s;
 }
 
 
-/* Hover kontak */
+.contact-link:hover {
+    background: #ff2020;
 
-.kontak:hover {
-    transform: scale(1.05);
-
-    background: #0066ff;
-
-    box-shadow:
-        0 0 15px #0066ff,
-        0 0 25px #ff0000;
+    transform: translateY(-2px);
 }
 
 
 /* =========================
-   ANIMASI
+   EASTER EGG
 ========================= */
 
-@keyframes muncul {
+.easter-message {
+    position: fixed;
 
-    from {
-        opacity: 0;
+    left: 50%;
+    top: 50%;
 
-        transform:
-            translateY(50px)
-            scale(0.9);
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+
+    padding: 30px 45px;
+
+    background: rgba(5, 5, 5, 0.97);
+
+    border: 2px solid #ff2020;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    text-align: center;
+
+    z-index: 5000;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 30px rgba(255, 0, 0, 0.8);
+
+    transition: 0.4s;
+}
+
+
+.easter-message.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+.easter-message span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #168cff;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 5%;
     }
 
-    to {
-        opacity: 1;
 
+    .menu-toggle {
+        display: block;
+
+        order: 2;
+    }
+
+
+    .logo {
+        order: 1;
+    }
+
+
+    .music-button {
+        position: absolute;
+
+        right: 65px;
+
+        top: 18px;
+
+        font-size: 10px;
+    }
+
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+
+        right: 5%;
+
+        width: 200px;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        background: rgba(5, 5, 5, 0.97);
+
+        border: 1px solid rgba(255, 0, 0, 0.4);
+
+        border-radius: 8px;
+    }
+
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+
+    .nav-menu a {
+        padding: 12px;
+    }
+
+
+    .hero {
+        flex-direction: column-reverse;
+
+        text-align: center;
+
+        padding-top: 120px;
+    }
+
+
+    .hero-content {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .hero-image {
+        width: 280px;
+
+        height: 280px;
+    }
+
+
+    .hero-image img {
+        width: 220px;
+
+        height: 220px;
+    }
+
+
+    .learning-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .section {
+        padding: 80px 7%;
+    }
+
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+
+    footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .easter-message {
+        width: 90%;
+
+        padding: 25px 15px;
+
+        font-size: 20px;
+    }
+
+}
+/* =========================
+   SPIDER-MAN EASTER EGG
+========================= */
+
+body.spider-activated {
+    animation: screenShake 0.6s ease;
+}
+
+
+/* Flash merah-biru */
+
+body.spider-activated::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 4500;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.18),
+            transparent 45%,
+            rgba(0, 100, 255, 0.18)
+        );
+
+    animation: spiderFlash 0.8s ease;
+}
+
+
+/* Jaring */
+
+body.spider-activated::after {
+    content: "✣  ✣  ✣";
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) scale(0);
+
+    z-index: 4501;
+
+    pointer-events: none;
+
+    font-size: 180px;
+
+    color: rgba(255, 255, 255, 0.12);
+
+    text-shadow:
+        0 0 20px rgba(255, 0, 0, 0.8),
+        0 0 50px rgba(0, 120, 255, 0.6);
+
+    animation: spiderWeb 2.5s ease forwards;
+}
+
+
+/* Logo */
+
+body.spider-activated .logo {
+    animation: logoPower 0.8s ease infinite alternate;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px red,
+        0 0 25px red,
+        0 0 40px #168cff;
+}
+
+
+/* Pesan */
+
+.easter-message {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+
+    width: min(90%, 550px);
+
+    padding: 35px 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(10, 10, 10, 0.98),
+            rgba(30, 0, 0, 0.98)
+        );
+
+    border: 2px solid #ff2020;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    text-align: center;
+
+    z-index: 5000;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 20px red,
+        0 0 60px rgba(0, 100, 255, 0.5);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+.easter-message.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+.easter-message span {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #168cff;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes screenShake {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    20% {
+        transform: translate(-6px, 4px);
+    }
+
+    40% {
+        transform: translate(6px, -4px);
+    }
+
+    60% {
+        transform: translate(-4px, -3px);
+    }
+
+    80% {
+        transform: translate(4px, 3px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+
+}
+
+
+@keyframes spiderFlash {
+
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0.2;
+    }
+
+    60% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes spiderWeb {
+
+    0% {
         transform:
-            translateY(0)
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0;
+    }
+
+    40% {
+        transform:
+            translate(-50%, -50%)
             scale(1);
+
+        opacity: 1;
     }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(2);
+
+        opacity: 0;
+    }
+
 }
 
 
-@keyframes fotoMuncul {
+@keyframes logoPower {
 
     from {
-        opacity: 0;
+        transform: scale(1);
 
-        transform:
-            scale(0.5)
-            rotate(-20deg);
+        text-shadow:
+            0 0 10px red;
     }
 
     to {
-        opacity: 1;
+        transform: scale(1.12);
 
-        transform:
-            scale(1)
-            rotate(0deg);
-    }
-}
-
-
-@keyframes namaMuncul {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateX(-50px);
+        text-shadow:
+            0 0 10px red,
+            0 0 25px red,
+            0 0 40px #168cff;
     }
 
-    to {
-        opacity: 1;
-
-        transform:
-            translateX(0);
-    }
-}
-
-
-@keyframes teksMuncul {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-@keyframes tombolMuncul {
-
-    from {
-        opacity: 0;
-
-        transform:
-            scale(0.5);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1);
-    }
-}
-
-
-@keyframes popupMuncul {
-
-    from {
-        opacity: 0;
-
-        transform:
-            scale(0.5);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1);
-    }
 }

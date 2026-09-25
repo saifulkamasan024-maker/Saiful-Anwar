@@ -19,7 +19,10 @@
 
     <div class="spider-web"></div>
 
-    <!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
     <nav class="navbar">
 
         <div class="logo" id="logo">
@@ -41,20 +44,28 @@
 
         </div>
 
-        <!-- MUSIC -->
-        <button id="musicButton" class="music-button" onclick="toggleMusic()">
+        <!-- MUSIC BUTTON -->
+
+        <button id="musicButton"
+                class="music-button"
+                onclick="toggleMusic()">
             🎵 PLAY
         </button>
 
-        <audio id="backgroundMusic" controls loop>
-         <source src="./musik.mp3" type="audio/mpeg">
-         Browser kamu tidak mendukung pemutar audio.
+        <!-- AUDIO -->
+        <!-- controls DIHAPUS agar player bawaan browser tidak muncul -->
+
+        <audio id="backgroundMusic" loop>
+            <source src="music.mp3" type="audio/mpeg">
         </audio>
 
     </nav>
 
 
-    <!-- HOME -->
+    <!-- =========================
+         HOME
+    ========================== -->
+
     <section id="home" class="hero">
 
         <div class="hero-content">
@@ -96,14 +107,18 @@
 
             <div class="image-glow"></div>
 
-            <img src="spider.jpeg" alt="Foto Saiful Anwar">
+            <img src="spider.jpeg"
+                 alt="Foto Saiful Anwar">
 
         </div>
 
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
     <section id="about" class="section">
 
         <div class="section-title">
@@ -115,6 +130,7 @@
             </h2>
 
         </div>
+
 
         <div class="about-box">
 
@@ -141,7 +157,10 @@
     </section>
 
 
-    <!-- EDUCATION -->
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
     <section id="education" class="section">
 
         <div class="section-title">
@@ -153,6 +172,7 @@
             </h2>
 
         </div>
+
 
         <div class="timeline">
 
@@ -235,7 +255,10 @@
     </section>
 
 
-    <!-- CURRENTLY LEARNING -->
+    <!-- =========================
+         LEARNING
+    ========================== -->
+
     <section id="learning" class="section">
 
         <div class="section-title">
@@ -247,6 +270,7 @@
             </h2>
 
         </div>
+
 
         <div class="learning-container">
 
@@ -309,7 +333,10 @@
     </section>
 
 
-    <!-- GOALS -->
+    <!-- =========================
+         GOALS
+    ========================== -->
+
     <section id="goals" class="section">
 
         <div class="section-title">
@@ -321,6 +348,7 @@
             </h2>
 
         </div>
+
 
         <div class="goals-box">
 
@@ -334,6 +362,7 @@
                 dan membangun sesuatu dari apa
                 yang sudah dipelajari.
             </p>
+
 
             <div class="goal-list">
 
@@ -360,8 +389,12 @@
     </section>
 
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact"
+             class="section contact-section">
 
         <div class="section-title">
 
@@ -373,9 +406,11 @@
 
         </div>
 
+
         <p>
             Butuh bantuan Spider-Man BANSEL? 🕷️
         </p>
+
 
         <button onclick="bukaKontak()" class="btn">
             HUBUNGI SAYA
@@ -384,7 +419,10 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
 
         <p>
@@ -398,42 +436,53 @@
     </footer>
 
 
-    <!-- CONTACT POPUP -->
+    <!-- =========================
+         CONTACT POPUP
+    ========================== -->
+
     <div id="popupKontak" class="popup">
 
         <div class="popup-box">
 
-            <button onclick="tutupKontak()" class="close">
+            <button onclick="tutupKontak()"
+                    class="close">
                 ×
             </button>
+
 
             <h2>
                 HUBUNGI SAYA
             </h2>
 
+
             <p>
                 Silakan pilih cara untuk menghubungi saya.
             </p>
 
-            <!-- GANTI DENGAN LINK KAMU -->
 
-            <a
-                href="https://wa.me/6283137556297"
-                target="_blank"
-                class="contact-link">
+            <!--
+            PENTING:
+            Pertahankan link WhatsApp, Instagram,
+            dan Email LAMA milik kamu di sini.
+            -->
+
+
+            <a href="https://wa.me/6283137556297"
+               target="_blank"
+               class="contact-link">
                 📱 WhatsApp
             </a>
 
-            <a
-                href="https://instagram.com/_________181818"
-                target="_blank"
-                class="contact-link">
+
+            <a href="https://instagram.com/_________181818"
+               target="_blank"
+               class="contact-link">
                 📸 Instagram
             </a>
 
-            <a
-                href="mailto:saifulkamasan024@gmail.com"
-                class="contact-link">
+
+            <a href="mailto:cingbaralegatuh@gmail.com"
+               class="contact-link">
                 📧 Email
             </a>
 
@@ -442,8 +491,12 @@
     </div>
 
 
-    <!-- EASTER EGG MESSAGE -->
-    <div id="easterMessage" class="easter-message">
+    <!-- =========================
+         EASTER EGG
+    ========================== -->
+
+    <div id="easterMessage"
+         class="easter-message">
 
         🕷️ SPIDER-MAN MODE 🕷️
 

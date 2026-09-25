@@ -1430,3 +1430,10 @@ body.spider-activated .logo {
     }
 
 }
+/* =========================
+   HIDDEN AUDIO PLAYER
+========================= */
+
+#backgroundMusic {
+    display: none !important;
+}

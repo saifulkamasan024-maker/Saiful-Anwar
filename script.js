@@ -4,7 +4,8 @@
 
 function bukaKontak() {
 
-    const popup = document.getElementById("popupKontak");
+    const popup =
+        document.getElementById("popupKontak");
 
     if (popup) {
         popup.style.display = "flex";
@@ -15,7 +16,8 @@ function bukaKontak() {
 
 function tutupKontak() {
 
-    const popup = document.getElementById("popupKontak");
+    const popup =
+        document.getElementById("popupKontak");
 
     if (popup) {
         popup.style.display = "none";
@@ -24,19 +26,16 @@ function tutupKontak() {
 }
 
 
-// Klik area luar popup untuk menutup
 window.addEventListener("click", function(event) {
 
-    const popup = document.getElementById("popupKontak");
+    const popup =
+        document.getElementById("popupKontak");
 
     if (popup && event.target === popup) {
-
         popup.style.display = "none";
-
     }
 
 });
-
 
 
 // =========================
@@ -49,9 +48,7 @@ function toggleMenu() {
         document.getElementById("navMenu");
 
     if (navMenu) {
-
         navMenu.classList.toggle("active");
-
     }
 
 }
@@ -63,13 +60,10 @@ function tutupMenu() {
         document.getElementById("navMenu");
 
     if (navMenu) {
-
         navMenu.classList.remove("active");
-
     }
 
 }
-
 
 
 // =========================
@@ -139,6 +133,32 @@ function toggleMusic() {
 }
 
 
+// =========================
+// UPDATE BUTTON
+// =========================
+
+if (music) {
+
+    music.addEventListener(
+        "ended",
+        function() {
+
+            if (musicButton) {
+
+                musicButton.innerHTML =
+                    "🎵 PLAY";
+
+                musicButton.classList.remove(
+                    "playing"
+                );
+
+            }
+
+        }
+    );
+
+}
+
 
 // =========================
 // SCROLL ANIMATION
@@ -158,7 +178,6 @@ const animatedElements =
 
 const observer =
     new IntersectionObserver(
-
         function(entries) {
 
             entries.forEach(function(entry) {
@@ -174,11 +193,9 @@ const observer =
             });
 
         },
-
         {
             threshold: 0.15
         }
-
     );
 
 
@@ -187,7 +204,6 @@ animatedElements.forEach(function(element) {
     observer.observe(element);
 
 });
-
 
 
 // =========================
@@ -203,7 +219,6 @@ window.addEventListener(
                 ".hero-content"
             );
 
-
         const heroImage =
             document.querySelector(
                 ".hero-image"
@@ -211,25 +226,16 @@ window.addEventListener(
 
 
         if (heroContent) {
-
-            heroContent.classList.add(
-                "show"
-            );
-
+            heroContent.classList.add("show");
         }
 
 
         if (heroImage) {
-
-            heroImage.classList.add(
-                "show"
-            );
-
+            heroImage.classList.add("show");
         }
 
     }
 );
-
 
 
 // =========================
@@ -239,7 +245,6 @@ window.addEventListener(
 const logo =
     document.getElementById("logo");
 
-
 const easterMessage =
     document.getElementById(
         "easterMessage"
@@ -247,9 +252,7 @@ const easterMessage =
 
 
 let clickCount = 0;
-
 let clickTimer = null;
-
 
 
 if (logo) {
@@ -289,29 +292,23 @@ if (logo) {
 }
 
 
-
 function activateSpiderMode() {
 
     if (!easterMessage) {
-
         return;
-
     }
 
 
-    // Aktifkan efek Spider-Man
     document.body.classList.add(
         "spider-activated"
     );
 
 
-    // Tampilkan pesan
     easterMessage.classList.add(
         "show"
     );
 
 
-    // Sembunyikan kembali setelah 3 detik
     setTimeout(
         function() {
 
